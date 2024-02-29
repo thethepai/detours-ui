@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./demo.css">
+    <script src="./demo.js"></script>
+
+    <!-- 内部样式 -->
+    <style>
+        /* id */
+        #username {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* id */
+        #password {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* 子代选择器 */
+        .table_and_img>.son {
+            color: yellowgreen;
+        }
+
+        .table_and_img>p {
+            color: yellowgreen;
+        }
+
+        /* 后代选择器 */
+        .table_and_img img {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* 相邻元素选择器 */
+        h4+p {
+            background-color: green;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <!-- 内联样式 -->
+        <h2 style="color: aqua;">title1</h2>
+
+        <h3 style="color: aquamarine;">title2</h3>
+
+        <p>text</p>
+    </div>
+
+    <div class="content">
+        <ul>
+            <li>element</li>
+            <li>element</li>
+            <li>element</li>
+        </ul>
+
+        <ol>
+            <li>element</li>
+            <li>element</li>
+            <li>element</li>
+        </ol>
+    </div>
+
+    <div class="table_and_img">
+        <table border="1">
+            <tr>
+                <th>列1</th>
+                <th>列2</th>
+            </tr>
+            <tr>
+                <td>e1</td>
+                <td>e2</td>
+            </tr>
+        </table>
+
+        <p class="son">子元素选择器测试</p>
+
+        <img src="logo.png" alt="该图片无法显示">
+    </div>
+
+
+    <div>
+        <p>块标签，用于组织内容</p>
+    </div>
+
+    <span>span标签，内联样式文本，样式标记</span>
+
+    <form action="#">
+        <!-- 表单提交地址 -->
+        <label for="username">用户：</label>
+        <input type="text" id="username" name="username">
+        <br>
+        <label for="password">密码：</label>
+        <input type="password" id="password" name="password">
+        <br>
+
+        <label>性别：</label>
+        <input type="radio" name="gender">男
+        <input type="radio" name="gender">女
+        <input type="radio" name="gender">其他
+        <br>
+
+        <label>爱好：</label>
+        <input type="checkbox" name="hobby">篮球
+        <input type="checkbox" name="hobby">足球
+        <input type="checkbox" name="hobby">羽毛球
+        <br>
+
+        <!-- 类选择器定义其样式 -->
+        <input class="button" type="submit" id="button_id" value="提交">
+    </form>
+
+    <div>
+        <span class="block">test</span>
+        <img src="" alt="no image">
+    </div>
+
+    <div class="float_test">
+        <div class="left_float">左浮动</div>
+        <div class="right_float">右浮动</div>
+    </div>
+
+</body>
+
+</html>

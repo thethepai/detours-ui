@@ -16,23 +16,13 @@
             <div class="layui-logo layui-hide-xs layui-bg-black">软件安全HOOK工具</div>
             <!-- 头部区域（可配合layui 已有的水平导航） -->
             <ul class="layui-nav layui-layout-left">
-                <!-- 移动端显示 -->
-                <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
-                    <i class="layui-icon layui-icon-spread-left"></i>
-                </li>
                 <li class="layui-nav-item layui-hide-xs"><a href="javascript:;">首页</a></li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">设置</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">待以后补充</a></dd>
-                    </dl>
-                </li>
             </ul>
             <ul class="layui-nav layui-layout-right">
                 <li class="layui-nav-item layui-hide layui-show-sm-inline-block">
                     <a href="javascript:;">
                         <img src="./layui/img/avatar.png" class="layui-nav-img">
-                        liusijie
+                        user01
                     </a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;">账户</a></dd>
@@ -53,31 +43,27 @@
                     <li class="layui-nav-item layui-nav-itemed">
                         <a class="" href="javascript:;">HOOK控制台</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;">软件路径</a></dd>
-                            <dd><a href="javascript:;">输出信息</a></dd>
-                            <dd><a href="javascript:;">日志</a></dd>
+                            <dd><a href="javascript:;" class="link-active" lay-href="./controlCenter/file_route.html"
+                                    data-id="3" data-title="file_route">软件路径</a></dd>
+                            <dd><a href="javascript:;" class="link-active" lay-href="./controlCenter/hook_info.html"
+                                    data-id="4" data-title="hook_info">Hook信息</a></dd>
+                            <dd><a href="javascript:;" class="link-active" lay-href="./controlCenter/output_info.html"
+                                    data-id="5" data-title="output_info">输出信息</a></dd>
+
                         </dl>
                     </li>
-                    <li class="layui-nav-item"><a href="javascript:;">使用指南</a></li>
-                    <li class="layui-nav-item"><a href="javascript:;">开发思路</a></li>
+                    <li class="layui-nav-item"><a href="javascript:;" class="link-active"
+                            lay-href="./controlCenter/user_guide.html" data-id="1" data-title="user_guide">使用指南</a></li>
+                    <li class="layui-nav-item"><a href="javascript:;" class="link-active"
+                            lay-href="./controlCenter/dev_log.html" data-id="2" data-title="dev_log">开发思路</a></li>
                 </ul>
             </div>
         </div>
         <div class="layui-body">
             <!-- 内容主体区域 -->
-            <div style="padding: 15px;">
-                <blockquote class="layui-elem-quote layui-text">
-                    内容主体....
-                </blockquote>
-                <div class="layui-card layui-panel">
-                    <div class="layui-card-header">
-                        使用方法
-                    </div>
-                    <div class="layui-card-body">
-                        略略略<br>
-                    </div>
-                </div>
-                <br><br>
+            <div class="layui-tab" lay-filter="tables" lay-allowclose="true">
+                <ul class="layui-tab-title"></ul>
+                <div class="layui-tab-content"></div>
             </div>
         </div>
         <div class="layui-footer">

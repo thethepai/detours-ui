@@ -1,4 +1,4 @@
-layui.use(['element', 'layer', 'util'], function () {
+layui.use(['element', 'layer', 'util', 'jquery'], function () {
     var element = layui.element;
     var layer = layui.layer;
     var util = layui.util;
@@ -22,11 +22,7 @@ layui.use(['element', 'layer', 'util'], function () {
             });
         }
     });
-});
 
-layui.use(['element', 'layer', 'jquery'], function () {
-    var element = layui.element;
-    var $ = layui.jquery;
     //左侧菜单点击事件
     $('.link-active').on('click', function () {
         var dataid = $(this);

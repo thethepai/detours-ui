@@ -43,8 +43,11 @@ int main() {
                 // 打印前端发来的data数据
                 std::cout << "Received message from client: " << received_json.dump() << std::endl;
 
+                // TODO：向前端发送数据，显示还有点小问题（已解决）
                 json response_json;
-                response_json["name"] = "memcpy";
+                response_json["name"] = "test1";
+                response_json["id"] = "U202112003";
+                response_json["priority"] = "high";
                 response_json["EXE"] = {{"size", "1024"}, {"drive", "C:"}};
                 response_json["thread"] = {{"id", "1"}, {"handle", "handle1"}};
 

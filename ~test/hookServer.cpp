@@ -50,6 +50,7 @@ int main() {
                 response_json["priority"] = "high";
                 response_json["EXE"] = {{"size", "1024"}, {"drive", "C:"}};
                 response_json["thread"] = {{"id", "1"}, {"handle", "handle1"}};
+                response_json["OUTPUT"] = {{"output1", "111"}, {"output2", "222"}};
 
                 std::string response_text = response_json.dump();
                 ws.write(boost::asio::buffer(std::move(response_text)));

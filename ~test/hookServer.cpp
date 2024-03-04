@@ -11,16 +11,20 @@ using json = nlohmann::json;
 
 int main() {
     try {
+        // 创建一个io_context对象（1个线程），同时创建tcp接受器
         boost::asio::io_context ioc{1};
         tcp::acceptor acceptor{ioc, {tcp::v4(), 8111}};
 
         for (;;) {
+            // 创建一个tcp套接字，接受器接受传入的连接，建立tcp连接
             tcp::socket socket{ioc};
             acceptor.accept(socket);
 
+            // 创建一个websocket流并且完成握手，建立websocket连接
             websocket::stream<tcp::socket> ws{std::move(socket)};
             ws.accept();
 
+            // 一直读取数据
             while (ws.is_open()) {
                 boost::beast::multi_buffer buffer;
                 ws.read(buffer);

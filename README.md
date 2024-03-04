@@ -42,7 +42,7 @@ a simple front-end for security tools using layui
 
 just git clone and click index.html
 
-## test
+## server in ~test folder
 
 about hookServer.cpp
 

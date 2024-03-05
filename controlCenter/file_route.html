@@ -27,28 +27,38 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">Server</label>
+                        <label class="layui-form-label">DLLPath
+                        </label>
                         <div class="layui-input-block">
                             <input type="text" name="hookPath" lay-verify="path" autocomplete="off"
-                                placeholder="请输入 hookServer.exe 的绝对路径" class="layui-input">
+                                placeholder="请输入 dll 的所在文件夹" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <div class="layui-input-block">
-                            <div class="layui-btn-container">
-                                <button type="button" class="layui-btn layui-btn-primary layui-border-green"
-                                    lay-btn="setDefault">填入默认值</button>
-                                <button type="reset" class="layui-btn layui-btn-primary layui-border-green">清空</button>
-                                <div class="layui-btn-container" style="float:right">
-                                    <button type="submit" class="layui-btn" lay-submit="" lay-filter="startHook"><i
-                                            class="layui-icon layui-icon-play"></i>连接</button>
-                                    <button type="button" class="layui-btn" lay-btn="btn_close"
-                                        style="margin-right: 0px;"><i
-                                            class="layui-icon layui-icon-close"></i>断开连接</button>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">DLL</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="hookPath_dll" lay-verify="path" autocomplete="off"
+                                    placeholder="请输入 dll 的绝对路径" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <div class="layui-btn-container">
+                                    <button type="button" class="layui-btn layui-btn-primary layui-border-green"
+                                        lay-btn="setDefault">填入默认值</button>
+                                    <button type="reset"
+                                        class="layui-btn layui-btn-primary layui-border-green">清空</button>
+                                    <div class="layui-btn-container" style="float:right">
+                                        <button type="submit" class="layui-btn" lay-submit="" lay-filter="startHook"><i
+                                                class="layui-icon layui-icon-play"></i>连接</button>
+                                        <button type="button" class="layui-btn" lay-btn="btn_close"
+                                            style="margin-right: 0px;"><i
+                                                class="layui-icon layui-icon-close"></i>断开连接</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </form>
             </div>
         </div>

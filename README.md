@@ -77,6 +77,7 @@ compile
 install:
 
 https://www.boost.org/
+
 https://github.com/nlohmann/json
 
 compile:
@@ -90,3 +91,7 @@ b2.exe install --prefix="E:/Boost/x86" --build-type=complete --toolset=msvc-14.3
 ```
 
 set include and lib path in VS project
+
+ref:https://blog.csdn.net/qq_33177268/article/details/126044636
+
+https://blog.csdn.net/erjia_/article/details/127573277

@@ -1,10 +1,10 @@
 #define _CRT_SECURE_NO_WARNINGS
 #define WIN32_LEAN_AND_MEAN
-#include <cstdio>
-#include <detours.h>
-#include <iostream>
-#include <windows.h>
-#pragma comment(lib, "detours.lib")
+#include<windows.h>
+#include<iostream>
+#include<cstdio>
+#include<detours.h>
+#pragma comment(lib,"detours.lib")
 
 // websocket通讯使用
 #include <boost/asio/ip/tcp.hpp>
@@ -27,18 +27,18 @@ int main()
     WCHAR DirPath[MAX_PATH + 1];
     WCHAR EXE[MAX_PATH + 1] = { 0 };
     char DLLPath[MAX_PATH + 1];
-
+    
     try {
         // 创建一个io_context对象（1个线程），同时创建tcp接受器
-        boost::asio::io_context ioc { 1 };
-        tcp::acceptor acceptor { ioc, { tcp::v4(), 8111 } };
+        boost::asio::io_context ioc{ 1 };
+        tcp::acceptor acceptor{ ioc, { tcp::v4(), 8111 } };
         for (;;) {
             // 创建一个tcp套接字，接受器接受传入的连接，建立tcp连接
-            tcp::socket socket { ioc };
+            tcp::socket socket{ ioc };
             acceptor.accept(socket);
 
             // 创建一个websocket流并且完成握手，建立websocket连接
-            websocket::stream<tcp::socket> ws { std::move(socket) };
+            websocket::stream<tcp::socket> ws{ std::move(socket) };
             ws.accept();
 
             // 一直读取数据
@@ -49,14 +49,15 @@ int main()
                 auto received_text = boost::beast::buffers_to_string(buffer.data());
 
                 if (received_text == "start hook") {
-                    std::cout << "Start hook command received." << std::endl;
-                    // 开始hook的逻辑
-                    continue;
-                } else if (received_text == "stop hook") {
-                    std::cout << "Stop hook command received." << std::endl;
-                    // 结束hook的逻辑
-                    ws.close(websocket::close_code::normal);
-                    break;
+                   std::cout << "Start hook command received." << std::endl;
+                   // 开始hook的逻辑
+                   continue;
+                }
+                else if (received_text == "stop hook") {
+                   std::cout << "Stop hook command received." << std::endl;
+                   // 结束hook的逻辑
+                   ws.close(websocket::close_code::normal);
+                   break;
                 }
 
                 // 打印并处理前端发来的data数据
@@ -64,64 +65,34 @@ int main()
                 std::cout << "Received message from client: " << received_json.dump() << std::endl;
 
                 if (received_json.contains("exePath")) {
-                    std::cout << "dirPath field exists in the received JSON." << std::endl;
+                   std::cout << "dirPath field exists in the received JSON." << std::endl;       
 
-                    std::string dirPath_str = received_json["hookPath"].get<std::string>();
-                    std::wstring dirPath(dirPath_str.begin(), dirPath_str.end());
-                    wcscpy_s(DirPath, MAX_PATH, dirPath.c_str()); // DLL的文件夹
+                   std::string dirPath_str = received_json["hookPath"].get<std::string>();
+                   std::wstring dirPath(dirPath_str.begin(), dirPath_str.end());
+                   wcscpy_s(DirPath, MAX_PATH, dirPath.c_str()); // DLL的文件夹
 
-                    std::string dllPath_str = received_json["hookPath_dll"].get<std::string>();
-                    strncpy(DLLPath, dllPath_str.c_str(), MAX_PATH); // dll的地址
+                   std::string dllPath_str = received_json["hookPath_dll"].get<std::string>();
+                   strncpy(DLLPath, dllPath_str.c_str(), MAX_PATH); // dll的地址
 
-                    std::string exePath_str = received_json["exePath"].get<std::string>();
-                    std::wstring exePath(exePath_str.begin(), exePath_str.end());
-                    wcscpy_s(EXE, MAX_PATH, exePath.c_str()); // 注入程序的地址
+                   std::string exePath_str = received_json["exePath"].get<std::string>();
+                   std::wstring exePath(exePath_str.begin(), exePath_str.end());
+                   wcscpy_s(EXE, MAX_PATH, exePath.c_str()); // 注入程序的地址
 
-                    if (DetourCreateProcessWithDllEx(EXE, NULL, NULL, NULL, TRUE, CREATE_DEFAULT_ERROR_MODE | CREATE_SUSPENDED, NULL, DirPath, &si, &pi, DLLPath, NULL)) {
-                        ResumeThread(pi.hThread);
-                        // 确定进程开始执行
-                        /*---------------------------------------------------------------------------------------*/
-                        // 打开命名管道
-                        HANDLE hPipe = CreateFile(
-                            L"\\\\.\\pipe\\MyPipe", // 管道名称
-                            GENERIC_READ | GENERIC_WRITE, // 读写访问
-                            0, // 不共享
-                            NULL, // 默认安全属性
-                            OPEN_EXISTING, // 打开现有的
-                            0, // 默认属性
-                            NULL); // 没有模板文件
-
-                        // 创建一个缓冲区
-                        char buffer[1024];
-
-                        // 从管道中读取数据
-                        DWORD bytesRead;
-                        ReadFile(
-                            hPipe, // 管道句柄
-                            buffer, // 数据缓冲区
-                            sizeof(buffer), // 缓冲区大小
-                            &bytesRead, // 读取的字节数
-                            NULL); // 不使用重叠
-
-                        // 将读取的数据转换为字符串
-                        std::string jsonString(buffer, bytesRead);
-
-                        // 将字符串转换为JSON对象
-                        json response_json = json::parse(jsonString);
-                        std::cout << " inject Received message from client: " << received_json.dump() << std::endl;
-
-                        std::string response_text = response_json.dump();
-                        ws.write(boost::asio::buffer(std::move(response_text)));
-                        /*---------------------------------------------------------------------------------------*/
-                        WaitForSingleObject(pi.hProcess, INFINITE);
-                    } else {
-                        char error[100];
-                        sprintf_s(error, "%d", GetLastError());
-                    }
+                   if (DetourCreateProcessWithDllEx(EXE, NULL, NULL, NULL, TRUE, CREATE_DEFAULT_ERROR_MODE | CREATE_SUSPENDED, NULL, DirPath, &si, &pi, DLLPath, NULL))
+                   {   
+                       ResumeThread(pi.hThread);
+                       WaitForSingleObject(pi.hProcess, INFINITE);
+                   }
+                   else
+                   {
+                       char error[100];
+                       sprintf_s(error, "%d", GetLastError());
+                   }
                 }
             }
         }
-    } catch (std::exception const& e) {
+    }
+    catch (std::exception const& e) {
         std::cerr << "Error: " << e.what() << std::endl;
         return EXIT_FAILURE;
     }

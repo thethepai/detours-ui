@@ -45,6 +45,8 @@ not up to date
 
 just git clone and click index.html
 
+to use the server, click detours_ui\\~server\\dist\\server.exe
+
 ## server in ~test folder
 
 about hookServer.cpp and inject.cpp: simple server code using boost and nlohmann

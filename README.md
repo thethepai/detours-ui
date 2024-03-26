@@ -4,6 +4,8 @@ a simple front-end for security tools using layui
 
 ## file structure
 
+not up to date
+
 ```bash
 .
 |   favicon.ico
@@ -95,3 +97,9 @@ set include and lib path in VS project
 ref:https://blog.csdn.net/qq_33177268/article/details/126044636
 
 https://blog.csdn.net/erjia_/article/details/127573277
+
+## server.py in ~server folder
+
+```bash
+pyinstaller --onefile --add-data "./inject.exe;." server.py
+```

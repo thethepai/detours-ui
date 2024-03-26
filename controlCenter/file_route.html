@@ -27,8 +27,7 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">DLLPath
-                        </label>
+                        <label class="layui-form-label">DLLPath</label>
                         <div class="layui-input-block">
                             <input type="text" name="hookPath" lay-verify="path" autocomplete="off"
                                 placeholder="请输入 dll 的所在文件夹" class="layui-input">
@@ -70,6 +69,247 @@
             </div>
         </div>
     </div>
+    <div class="layui-row">
+        <div class="layui-col-xs6">
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend>输出信息</legend>
+            </fieldset>
+        </div>
+    </div>
+    <div class="layui-card">
+        <!-- 进程与EXE信息 -->
+        <div id="pro_info" style="display:block;">
+            <div class="layui-card-header">检测结果呈现</div>
+            <div class="layui-card-body">
+                <div class="layui-collapse" lay-accordion="">
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">堆操作</h2>
+                        <div class="layui-colla-content layui-show" style="padding: 0px;">
+                            <table class="layui-table" id="process_info">
+                                <tbody>
+                                    <tr>
+                                        <td>堆创建</td>
+                                        <td id="a_hHeap"></td>
+                                        <td id="a_dwInitialSize"></td>
+                                        <td id="a_dwMaximumSize"></td>
+                                        <td id="a_fIOptions"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>堆分配</td>
+                                        <td id="b_hHeap"></td>
+                                        <td id="b_dwFlags"></td>
+                                        <td id="b_dwBytes"></td>
+                                        <td id="b_address"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>堆释放</td>
+                                        <td id="c_hHeap"></td>
+                                        <td id="c_dwFlags"></td>
+                                        <td id="c_lpMem"></td>
+                                        <td id="c_return"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>堆销毁</td>
+                                        <td id="d_hHeap"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-collapse" lay-accordion="">
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">弹窗</h2>
+                        <div class="layui-colla-content" style="padding: 0px;">
+                            <table class="layui-table" id="exeInfo">
+                                <tbody>
+                                    <tr>
+                                        <td>A</td>
+                                        <td id="a_hWnd"></td>
+                                        <td id="a_lpText"></td>
+                                        <td id="a_lpCaption"></td>
+                                        <td id="a_uType"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>W</td>
+                                        <td id="b_hWnd"></td>
+                                        <td id="b_lpText"></td>
+                                        <td id="b_lpCaption"></td>
+                                        <td id="b_uType"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-collapse" lay-accordion="">
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">文件操作</h2>
+                        <div class="layui-colla-content" style="padding: 0px;">
+                            <table class="layui-table" id="exeInfo">
+                                <tbody>
+                                    <tr>
+                                        <td>创建</td>
+                                        <td id="a_lpFileName"></td>
+                                        <td id="a_dwDesiredAccess"></td>
+                                        <!-- <td id="a_dwShareMode"></td> -->
+                                        <td id="a_lpSecurityAttributes"></td>
+                                        <td id="a_dwCreationDisposition"></td>
+                                        <td id="a_dwFlagsAndAttributes"></td>
+                                        <!-- <td id="a_hTemplateFile"></td> -->
+                                        <td id="a_handle"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>打开</td>
+                                        <td id="b_Operation"></td>
+                                        <td id="b_lpFileName"></td>
+                                        <td id="b_lpReOpenBuff"></td>
+                                        <td id="b_uStyle"></td>
+                                        <td id="b_hFile"></td>
+                                        <td id="b_errorCode"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>写</td>
+                                        <td id="c_hFile"></td>
+                                        <td id="c_pathLen"></td>
+                                        <td id="c_lpBuffer"></td>
+                                        <td id="c_nNumberOfBytesToWrite"></td>
+                                        <td id="c_lpNumberOfBytesWritten"></td>
+                                        <td id="c_lpOverlapped"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>读</td>
+                                        <td id="d_hFile"></td>
+                                        <td id="d_pathLen"></td>
+                                        <td id="d_lpBuffer"></td>
+                                        <td id="d_nNumberOfBytesToRead"></td>
+                                        <td id="d_lpNumberOfBytesRead"></td>
+                                        <td id="d_lpOverlapped"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>关闭</td>
+                                        <td id="e_hFile"></td>
+                                        <td id="e_return"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-collapse" lay-accordion="">
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">注册表操作</h2>
+                        <div class="layui-colla-content" style="padding: 0px;">
+                            <table class="layui-table" id="exeInfo">
+                                <tbody>
+                                    <tr>
+                                        <td>创建</td>
+                                        <td id="e_hKey"></td>
+                                        <td id="e_lpSubKey"></td>
+                                        <td id="e_dwOptions"></td>
+                                        <td id="e_samDesired"></td>
+                                        <td id="e_phkResult"></td>
+                                        <td id="e_lpdwDisposition"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>打开</td>
+                                        <td id="a_hKey"></td>
+                                        <td id="a_lpSubKey"></td>
+                                        <td id="a_ulOptions"></td>
+                                        <td id="a_samDesired"></td>
+                                        <td id="a_phkResult"></td>
+                                        <td id="a_status"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>查询</td>
+                                        <td id="c_hKey"></td>
+                                        <td id="c_lpValueName"></td>
+                                        <td id="c_lpReserved"></td>
+                                        <td id="c_lpType"></td>
+                                        <td id="c_lpData"></td>
+                                        <td id="c_status"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>写值</td>
+                                        <td id="d_hKey"></td>
+                                        <td id="d_lpValueName"></td>
+                                        <td id="d_dwType"></td>
+                                        <td id="d_lpData"></td>
+                                        <td id="d_cbData"></td>
+                                        <td id="d_status"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>关闭</td>
+                                        <td id="b_hKey"></td>
+                                        <td id="b_status"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-collapse" lay-accordion="">
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">socket</h2>
+                        <div class="layui-colla-content" style="padding: 0px;">
+                            <table class="layui-table" id="exeInfo">
+                                <tbody>
+                                    <tr>
+                                        <td>socket</td>
+                                        <td id="a_af"></td>
+                                        <td id="a_type"></td>
+                                        <td id="a_protocol"></td>
+                                        <td id="a_socket"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>WSAStartup</td>
+                                        <td id="b_wVersionRequired"></td>
+                                        <td id="b_wVersionRequiredPrimary"></td>
+                                        <td id="b_wVersionRequiredSecondary"></td>
+                                        <td id="b_lpWSAData"></td>
+                                        <td id="bb_status"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>connect</td>
+                                        <td id="c_s"></td>
+                                        <td id="c_sockaddr"></td>
+                                        <td id="c_namelen"></td>
+                                        <td id="cc_status"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>recv</td>
+                                        <td id="d_s"></td>
+                                        <td id="d_buf"></td>
+                                        <td id="d_len"></td>
+                                        <td id="d_flags"></td>
+                                        <td id="dd_status"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>send</td>
+                                        <td id="e_s"></td>
+                                        <td id="e_buf"></td>
+                                        <td id="e_len"></td>
+                                        <td id="e_flags"></td>
+                                        <td id="ee_status"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>closesocket</td>
+                                        <td id="f_s"></td>
+                                        <td id="ff_status"></td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td>WSACleanup</td>
+                                        <td id="gg_status"></td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 <script src="../layui/layui.js"></script>
 <script src="../lib/file_route.js"></script>

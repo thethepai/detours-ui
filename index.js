@@ -4,10 +4,15 @@ layui.use(['element', 'layer', 'util', 'jquery'], function () {
     var util = layui.util;
     var $ = layui.$;
 
-    // // 初始化页面
-    // $(document).ready(function() {
-    //     tabFunction.tabAdd('./controlCenter/dev_log.html', '2', 'dev_log');
-    // });
+    var firstinit = true;
+    // 初始化页面
+    $(document).ready(function () {
+        if (firstinit) {
+            tabFunction.tabAdd('./controlCenter/file_route.html', '3', 'control_center');
+            tabFunction.tabChange('3');
+            firstinit = false;
+        }
+    });
 
     //头部事件
     util.event('lay-header-event', {

@@ -95,11 +95,16 @@ def pipe_server():
             if server:
                 server.ws_server.close()
                 asyncio.get_event_loop().run_until_complete(server.ws_server.wait_closed())
+                # server.close()
+                # asyncio.get_event_loop().run_until_complete(server.wait_closed())
                 
             print("generating log...")    
             # 将信息写入log.txt
-            # with open(log_file_path, 'a') as f:
-            #     f.write('\n'.join(messages))
+            # try:
+            #     with open(log_file_path, 'a') as f:
+            #         f.write('\n'.join(messages))
+            # except Exception as e:
+            #     print(f"Error writing to log file: {e}")
             messages = []
             print("preparring for next connection...")
 

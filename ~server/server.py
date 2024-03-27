@@ -7,6 +7,7 @@ import subprocess
 import win32file
 import win32pipe
 import pywintypes
+import time
 
 class WebSocketServer:
     def __init__(self):
@@ -100,6 +101,7 @@ def pipe_server():
                 
             print("generating log...")    
             # 将信息写入log.txt
+            # time.sleep(5)
             # try:
             #     with open(log_file_path, 'a') as f:
             #         f.write('\n'.join(messages))

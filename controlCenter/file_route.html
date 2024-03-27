@@ -89,28 +89,24 @@
                                 <tbody>
                                     <tr>
                                         <td>堆创建</td>
-                                        <td id="a_hHeap"></td>
-                                        <td id="a_dwInitialSize"></td>
-                                        <td id="a_dwMaximumSize"></td>
                                         <td id="a_fIOptions"></td>
+                                        <td id="a_dwInitSize"></td>
+                                        <td id="a_dwMaxSize"></td>
                                     </tr>
                                     <tr>
-                                        <td>堆分配</td>
+                                        <td>堆销毁</td>
+                                        <td id="b_opt2"></td>
                                         <td id="b_hHeap"></td>
-                                        <td id="b_dwFlags"></td>
-                                        <td id="b_dwBytes"></td>
-                                        <td id="b_address"></td>
                                     </tr>
                                     <tr>
                                         <td>堆释放</td>
                                         <td id="c_hHeap"></td>
                                         <td id="c_dwFlags"></td>
-                                        <td id="c_lpMem"></td>
-                                        <td id="c_return"></td>
                                     </tr>
                                     <tr>
-                                        <td>堆销毁</td>
-                                        <td id="d_hHeap"></td>
+                                        <td>堆恶意操作</td>
+                                        <td id="d_opt2"></td>
+                                        <td id="d_optinfo2"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -150,46 +146,50 @@
                                 <tbody>
                                     <tr>
                                         <td>创建</td>
-                                        <td id="a_lpFileName"></td>
                                         <td id="a_dwDesiredAccess"></td>
-                                        <!-- <td id="a_dwShareMode"></td> -->
+                                        <td id="a_dwShareMode"></td>
                                         <td id="a_lpSecurityAttributes"></td>
                                         <td id="a_dwCreationDisposition"></td>
                                         <td id="a_dwFlagsAndAttributes"></td>
-                                        <!-- <td id="a_hTemplateFile"></td> -->
-                                        <td id="a_handle"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>打开</td>
-                                        <td id="b_Operation"></td>
-                                        <td id="b_lpFileName"></td>
-                                        <td id="b_lpReOpenBuff"></td>
-                                        <td id="b_uStyle"></td>
-                                        <td id="b_hFile"></td>
-                                        <td id="b_errorCode"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>写</td>
-                                        <td id="c_hFile"></td>
-                                        <td id="c_pathLen"></td>
-                                        <td id="c_lpBuffer"></td>
-                                        <td id="c_nNumberOfBytesToWrite"></td>
-                                        <td id="c_lpNumberOfBytesWritten"></td>
-                                        <td id="c_lpOverlapped"></td>
+                                        <td id="a_hTemplateFile"></td>
                                     </tr>
                                     <tr>
                                         <td>读</td>
+                                        <td id="d_opt"></td>
                                         <td id="d_hFile"></td>
-                                        <td id="d_pathLen"></td>
-                                        <td id="d_lpBuffer"></td>
                                         <td id="d_nNumberOfBytesToRead"></td>
-                                        <td id="d_lpNumberOfBytesRead"></td>
+                                        <td id="d_NumberOfBytesRead"></td>
                                         <td id="d_lpOverlapped"></td>
+                                        <td id="d_ReadData"></td>
                                     </tr>
                                     <tr>
-                                        <td>关闭</td>
-                                        <td id="e_hFile"></td>
-                                        <td id="e_return"></td>
+                                        <td>写</td>
+                                        <td id="g_hFile"></td>
+                                        <td id="g_nNumberOfBytesToWrite"></td>
+                                        <td id="g_lpNumberOfBytesWritten"></td>
+                                        <td id="g_lpOverlapped"></td>
+                                        <td id="g_WriteData"></td>
+                                        <td id="g_isExe"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>复制行为</td>
+                                        <td id="e_opt"></td>
+                                        <td id="f_opt"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>删除行为</td>
+                                        <td id="b_opt"></td>
+                                        <td id="c_opt"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>查找第一个文件</td>
+                                        <td id="h_lpFileName"></td>
+                                        <td id="h_opt"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>查找下一个文件</td>
+                                        <td id="i_lpFindFileData"></td>
+                                        <td id="i_opt"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -204,44 +204,42 @@
                                 <tbody>
                                     <tr>
                                         <td>创建</td>
-                                        <td id="e_hKey"></td>
-                                        <td id="e_lpSubKey"></td>
-                                        <td id="e_dwOptions"></td>
-                                        <td id="e_samDesired"></td>
-                                        <td id="e_phkResult"></td>
-                                        <td id="e_lpdwDisposition"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>打开</td>
                                         <td id="a_hKey"></td>
-                                        <td id="a_lpSubKey"></td>
-                                        <td id="a_ulOptions"></td>
-                                        <td id="a_samDesired"></td>
                                         <td id="a_phkResult"></td>
-                                        <td id="a_status"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>查询</td>
-                                        <td id="c_hKey"></td>
-                                        <td id="c_lpValueName"></td>
-                                        <td id="c_lpReserved"></td>
-                                        <td id="c_lpType"></td>
-                                        <td id="c_lpData"></td>
-                                        <td id="c_status"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>写值</td>
-                                        <td id="d_hKey"></td>
-                                        <td id="d_lpValueName"></td>
-                                        <td id="d_dwType"></td>
-                                        <td id="d_lpData"></td>
-                                        <td id="d_cbData"></td>
-                                        <td id="d_status"></td>
                                     </tr>
                                     <tr>
                                         <td>关闭</td>
+                                        <td id="b_opt3"></td>
                                         <td id="b_hKey"></td>
-                                        <td id="b_status"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>删除</td>
+                                        <td id="c_opt3"></td>
+                                        <td id="c_hKey"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>打开</td>
+                                        <td id="d_hKey"></td>
+                                        <td id="d_phkResult"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>恶意行为</td>
+                                        <td id="e_opt3"></td>
+                                        <td id="e_optinfo3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>写值</td>
+                                        <td id="f_hKey"></td>
+                                        <td id="f_dwType"></td>
+                                        <td id="f_lpData"></td>
+                                        <td id="f_cbData"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>读值</td>
+                                        <td id="g_hKey"></td>
+                                        <td id="g_dwType"></td>
+                                        <td id="g_pdwType"></td>
+                                        <td id="g_pcbData"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -256,51 +254,46 @@
                                 <tbody>
                                     <tr>
                                         <td>socket</td>
-                                        <td id="a_af"></td>
+                                        <td id="a_opt4"></td>
+                                        <td id="a_addressFamily"></td>
                                         <td id="a_type"></td>
                                         <td id="a_protocol"></td>
-                                        <td id="a_socket"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>WSAStartup</td>
-                                        <td id="b_wVersionRequired"></td>
-                                        <td id="b_wVersionRequiredPrimary"></td>
-                                        <td id="b_wVersionRequiredSecondary"></td>
-                                        <td id="b_lpWSAData"></td>
-                                        <td id="bb_status"></td>
                                     </tr>
                                     <tr>
                                         <td>connect</td>
-                                        <td id="c_s"></td>
-                                        <td id="c_sockaddr"></td>
-                                        <td id="c_namelen"></td>
-                                        <td id="cc_status"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>recv</td>
-                                        <td id="d_s"></td>
-                                        <td id="d_buf"></td>
-                                        <td id="d_len"></td>
-                                        <td id="d_flags"></td>
-                                        <td id="dd_status"></td>
+                                        <td id="b_socket"></td>
+                                        <td id="b_sockaddr"></td>
+                                        <td id="b_port"></td>
+                                        <td id="b_family"></td>
                                     </tr>
                                     <tr>
                                         <td>send</td>
-                                        <td id="e_s"></td>
-                                        <td id="e_buf"></td>
-                                        <td id="e_len"></td>
-                                        <td id="e_flags"></td>
-                                        <td id="ee_status"></td>
+                                        <td id="c_socket"></td>
+                                        <td id="c_buf"></td>
+                                        <td id="c_len"></td>
+                                        <td id="c_flags"></td>
                                     </tr>
                                     <tr>
-                                        <td>closesocket</td>
-                                        <td id="f_s"></td>
-                                        <td id="ff_status"></td>
+                                        <td>recv</td>
+                                        <td id="d_socket"></td>
+                                        <td id="d_buf"></td>
+                                        <td id="d_len"></td>
+                                        <td id="d_flags"></td>
                                     </tr>
-                                    <!-- <tr>
-                                        <td>WSACleanup</td>
-                                        <td id="gg_status"></td>
-                                    </tr> -->
+                                    <tr>
+                                        <td>sendto</td>
+                                        <td id="e_socket"></td>
+                                        <td id="e_len"></td>
+                                        <td id="e_flags"></td>
+                                        <td id="e_tolen"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>recvfrom</td>
+                                        <td id="f_socket"></td>
+                                        <td id="f_buf"></td>
+                                        <td id="f_len"></td>
+                                        <td id="f_flags"></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

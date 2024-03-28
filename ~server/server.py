@@ -101,12 +101,13 @@ def pipe_server():
                 
             print("generating log...")    
             # 将信息写入log.txt
-            # time.sleep(5)
-            # try:
-            #     with open(log_file_path, 'a') as f:
-            #         f.write('\n'.join(messages))
-            # except Exception as e:
-            #     print(f"Error writing to log file: {e}")
+            time.sleep(2)
+            input("Press Enter to continue...")
+            try:
+                with open(log_file_path, 'a') as f:
+                    f.write('\n'.join(messages))
+            except Exception as e:
+                print(f"Error writing to log file: {e}")
             messages = []
             print("preparring for next connection...")
 

@@ -1,5 +1,0 @@
-{"type":"link"}
-{"event":{"Operation":"FindFirstFile","lpFileName":41641096,"opt":"OperateMultiFiles"},"eventID":"File"}
-{"event":{"Operation":"FileCopy","opt":"FileCopied"},"eventID":"File"}
-{"event":{"Operation":"FileCopyItself","opt":"FileCopiedItself"},"eventID":"File"}
-{"type":"unlink"}

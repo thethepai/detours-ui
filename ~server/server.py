@@ -77,7 +77,7 @@ def pipe_server():
                 num += 1
                 asyncio.get_event_loop().run_until_complete(ws_server.send_message(message))
                 
-                # 暂时没用
+                # 由前端断开链接
                 if message == "unlink":
                     print("dll unlink success!")
                     break

@@ -8,37 +8,43 @@ not up to date
 
 ```bash
 .
-|   favicon.ico
-|   index.html
-|   index.js
-|   
-+---controlCenter
-|       dev_log.html
-|       file_route.html
-|       hook_info.html
-|       output_info.html
-|       user_guide.html
-|       
-+---layui
-|   |   layui.js
-|   |   
-|   +---css
-|   |       layui.css
-|   |       
-|   +---font
-|   |       
-|   \---img
-|           avatar.png
-|           
-+---lib
-|       file_root.js
-|       hook_info.js
-|       output_info.js
-|       
-\---~test
+│  favicon.ico
+│  index.html
+│  index.js
+│  output.txt
+│  README.md
+│  
+├─controlCenter
+│      dev_log.html
+│      file_route.html
+│      user_guide.html
+│      
+├─layui
+│  │  layui.js 
+│  ├─css     
+│  ├─font     
+│  └─img
+│          
+├─lib
+│      
+├─~server
+│  │  inject.exe
+│  │  log.txt
+│  │  server.py
+│  │  server.spec
+│  │  
+│  ├─build
+│  │  └─server
+│  │              
+│  └─dist
+│          log.txt
+│          server.exe
+│          
+└─~test
+        Dll.dll
         hookServer.cpp
         hookServer.exe
-        inject.cpp
+        inject_test.cpp
 ```
 
 ## usage

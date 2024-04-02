@@ -6,10 +6,24 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
+    - name: Install dependencies
+      run: |
+        choco install nlohmann-json
+        choco install boost
+    - name: Download and install Detours
+      run: |
+        # Download Detours
+        Invoke-WebRequest -Uri https://github.com/microsoft/Detours/archive/refs/tags/v4.0.1.zip -OutFile detours.zip
+        # Extract the zip file
+        Expand-Archive -Path detours.zip -DestinationPath .
+        # Change to the Detours directory
+        cd Detours-4.0.1
+        # Build Detours
+        msbuild /p:Configuration=Release /p:Platform=x64 detours.sln
     - name: configure
       run: ./configure
     - name: make

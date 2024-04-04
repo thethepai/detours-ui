@@ -16,6 +16,7 @@ jobs:
         choco install boost
     - name: Download and install Detours
       run: |
+        # TODO: How to build and install Detours?
         # Download Detours
         Invoke-WebRequest -Uri https://github.com/microsoft/Detours/archive/refs/tags/v4.0.1.zip -OutFile detours.zip
         # Extract the zip file

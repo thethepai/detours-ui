@@ -2,13 +2,6 @@ name: python Build EXE
 
 on:
   workflow_dispatch:
-    # inputs:
-    #   tag_name:
-    #     description: 'Tag Name'     
-    #     required: true
-    #   release_name:
-    #     description: 'Release Name'
-    #     required: true
 
 jobs:
   build:
@@ -39,30 +32,3 @@ jobs:
       with:
         name: server_exe
         path: ./~server/dist/server.exe
-
-    # - name: Build EXE
-    #   run: |
-    #     cd ~server
-    #     pyinstaller --onefile --add-data "./inject.exe;." server.py
-
-    # - name: Create Release
-    #   id: create_release
-    #   uses: actions/create-release@v1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.YOUR_PAT_SECRET }}
-    #   with:
-    #     tag_name: ${{ github.event.inputs.tag_name }}
-    #     release_name: ${{ github.event.inputs.release_name }}
-    #     draft: false
-    #     prerelease: false
-
-    # - name: Upload Release Asset
-    #   id: upload-release-asset 
-    #   uses: actions/upload-release-asset@v1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.YOUR_PAT_SECRET }}
-    #   with:
-    #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-    #     asset_path: ./~server/dist/server.exe
-    #     asset_name: server.exe
-    #     asset_content_type: application/octet-stream

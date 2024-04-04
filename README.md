@@ -4,14 +4,9 @@ a simple front-end for security tools using layui
 
 ## file structure
 
-not up to date
-
 ```bash
 .
-│  favicon.ico
-│  index.html
-│  index.js
-│  output.txt
+│  index.html # frontend index file
 │  README.md
 │  
 ├─controlCenter
@@ -20,7 +15,7 @@ not up to date
 │      user_guide.html
 │      
 ├─layui
-│  │  layui.js 
+│  │  layui.js
 │  ├─css     
 │  ├─font     
 │  └─img
@@ -29,21 +24,17 @@ not up to date
 │      
 ├─~server
 │  │  inject.exe
-│  │  log.txt
 │  │  server.py
-│  │  server.spec
 │  │  
 │  ├─build
 │  │  └─server
 │  │              
 │  └─dist
-│          log.txt
-│          server.exe
+│       server.exe # server for the frontend
 │          
 └─~test
-        Dll.dll
+        Dll.dll # DLL
         hookServer.cpp
-        hookServer.exe
         inject_test.cpp
 ```
 
@@ -51,11 +42,13 @@ not up to date
 
 just git clone and click index.html
 
-to use the server, click detours_ui\\~server\\dist\\server.exe
+to use the server, click `detours_ui\\~server\\dist\\server.exe`
 
-## server in ~test folder
+to use the DLL fiel, check it out in `detours_ui\\~test\Dll.dll`
 
-about hookServer.cpp and inject.cpp: simple server code using boost and nlohmann
+## content in ~test folder
+
+about hookServer.cpp and inject_test.cpp: simple server code using boost and nlohmann
 
 ### MSYS2
 
@@ -108,6 +101,11 @@ https://blog.csdn.net/erjia_/article/details/127573277
 
 ## server.py in ~server folder
 
+github action is prepared for generating python package, just choose `python Build EXE` in `actions` page
+
+or you can compile the python file manually:
+
 ```bash
+# you should install dependencies needed first
 pyinstaller --onefile --add-data "./inject.exe;." server.py
 ```

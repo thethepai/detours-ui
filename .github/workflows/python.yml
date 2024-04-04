@@ -26,7 +26,6 @@ jobs:
             pip install os-win
             pip install subprocess.run
             pip install pywin32
-            pip install time
 
     - name: Build EXE
       run: |

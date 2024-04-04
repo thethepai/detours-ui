@@ -1,4 +1,4 @@
-name: Build EXE
+name: python Build EXE
 
 on:
   workflow_dispatch:

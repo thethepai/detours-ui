@@ -39,6 +39,7 @@ def pipe_server():
     while True:
         server = websockets.serve(ws_server.handler, 'localhost', 8112)
         asyncio.get_event_loop().run_until_complete(server)
+        
         script_dir = os.path.dirname(os.path.abspath(__file__))
         os.chdir(script_dir)
         p = subprocess.Popen(['./inject.exe'])

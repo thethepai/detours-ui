@@ -109,3 +109,7 @@ or you can compile the python file manually:
 # you should install dependencies needed first
 pyinstaller --onefile --add-data "./inject.exe;." server.py
 ```
+
+## others
+
+TODO: C/C++ CI workflow to generate detour dll package

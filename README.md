@@ -44,7 +44,7 @@ just git clone and click index.html
 
 to use the server, click `detours_ui\\~server\\dist\\server.exe`
 
-to use the DLL fiel, check it out in `detours_ui\\~test\Dll.dll`
+to use the DLL file, check it out in `detours_ui\\~test\Dll.dll`
 
 ## content in ~test folder
 
